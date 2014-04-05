@@ -6,6 +6,7 @@
 void* doJob(void* data)
 {
     printf("Hello from thread(id=0x%lx)!\n", pthread_self());
+    return NULL;
 }
 
 int main(int argc, char **argv)
