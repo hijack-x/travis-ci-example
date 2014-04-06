@@ -3,7 +3,7 @@
 
 #define THREAD_NUM 5
 
-void* doJob(void* data)
+void* threadEntry(void* data)
 {
     printf("Hello from thread(id=0x%lx)!\n", pthread_self());
     return NULL;
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     int i, j;
 
     for(i = 0; i < THREAD_NUM; ++i) {
-        pthread_create(&threads[i], NULL, doJob, NULL);
+        pthread_create(&threads[i], NULL, threadEntry, NULL);
     }
 
     for (j = 0; j < THREAD_NUM; ++j) {
